@@ -3,6 +3,7 @@
 :root {
     --bg: #fff;
     --primary: #a30013;
+    --primary_btn-shadow: #52000a;
     --text-dark: #02001e;
     --text-light: #fff;
 }
@@ -35,9 +36,18 @@ p, small, a, li, table {
     text-wrap: nowrap;
     font-weight: 500;
     cursor: pointer;
+
+    box-shadow: 0 3px 0 var(--primary_btn-shadow);
+    transition: 100ms ease-in-out;
 }
 
 .btn-primary {
     background-color: var(--primary);
     color: var(--text-light);
 }
+
+.btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 var(--primary_btn-shadow);
+}
+
