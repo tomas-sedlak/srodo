@@ -3,8 +3,10 @@
 :root {
     --bg: #fff;
     --primary: #a30013;
+    --primary_btn-shadow: #52000a;
     --text-dark: #02001e;
     --text-light: #fff;
+    
 }
 
 * {
@@ -23,7 +25,7 @@ a {
 }
 
 p, small, a, li, table {
-    line-height: 2.25;
+    line-height: 2;
     margin: 0;
 }
 
@@ -35,9 +37,67 @@ p, small, a, li, table {
     text-wrap: nowrap;
     font-weight: 500;
     cursor: pointer;
+
+    box-shadow: 0 3px 0 var(--primary_btn-shadow);
+    transition: 50ms ease-in-out;
 }
 
 .btn-primary {
     background-color: var(--primary);
     color: var(--text-light);
 }
+
+.btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 var(--primary_btn-shadow);
+}
+
+.input-container {
+    position: absolute;
+    top: 10%; /*change this later*/
+    /*display: flex;*/
+}
+
+.login-input {
+    position: relative;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 6px;
+    border: 1px solid var(--primary);
+    outline: none;
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--primary);
+    font-weight: 300;
+}
+
+label {
+    position: absolute;
+    padding: 0 10px;
+    margin-left: 5px; 
+    top: 30%;
+    left: 5px;
+    /*transform: translateX();*/
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    background-color: var(--bg);     
+    color: var(--primary);
+    transition: 0.2s ease;
+    pointer-events: none;
+}
+
+.login-input:focus {
+    border-color: var(--primary);
+}
+
+.login-input:focus ~ label,
+.login-input:not(:placeholder-shown) ~ label{
+    transform: translate(-5%,-50%);
+    top: 0;
+    
+}
+
+
+
