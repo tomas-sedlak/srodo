@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* Variables */
 :root {
     --bg: #fff;
-    --primary: #991b1b;
+    --primary: #a30013;
 }
+
+/* Global styles START */
 
 * {
     box-sizing: border-box;
@@ -21,28 +24,62 @@ a {
 }
 
 p, small, a, li, table {
-    line-height: 2;
+    line-height: 2.25;
     margin: 0;
 }
 
+/* Global styles END */
+
+/* Button styling START */
+
 .btn {
+    outline: none;
+    border: none;
+    position: relative;
+    top: 0;
     display: inline-block;
-    padding: 12px 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 24px;
     border-radius: 6px;
-    z-index: 2;
-    text-wrap: nowrap;
     font-weight: 500;
+    text-wrap: nowrap;
+    text-align: center;
     cursor: pointer;
-    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.5);
-    transition: 150ms ease-in-out;
+    transition: top 150ms ease-out;
+}
+
+.btn::before, .btn::after {
+    z-index: -1;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    border-radius: 6px;
+    transition: bottom 150ms ease-out;
+}
+
+.btn::before {
+    background-color: inherit;
+}
+
+.btn::after {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+    top: 4px;
+}
+
+.btn:hover::before, .btn:hover::after {
+    bottom: 0;
 }
 
 .btn-primary {
     background-color: var(--primary);
-    color: var(--text-light);
+    color: var(--bg);
 }
 
-.btn:hover {
-    transform: translateY(1px);
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
-}
+/* Button styling END */
