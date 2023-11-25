@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    width: 320px;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.input-field {    
+    position: relative; 
+    margin-bottom: 1rem;
+}
+
+label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    padding: 0 16px;
+    transition: 150ms ease-in-out;
+    pointer-events: none;
+}
+
+/*label animation*/
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translate(0px,-50%);
+    padding: 0 4px;
+    font-size: 0.8rem;
+    background-color: var(--bg);
+}
+
+input:focus ~ label {
+    color: var(--primary);
+}
+/*label animation END*/
+
+.btn {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.signup {
+    text-align: center;
+}
+
+.signup a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.forgot {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.forgot a {
+    
+    text-decoration: none;
+    color: var(--primary);
+    margin-left: 4px;    
+}
+
+.or {
+    background-color: var(--bg);
+    padding: 0 6px;
+    font-size: 0.9rem;
+    margin: auto;
+    transform: translateY(-75%);
+    width: fit-content;
+}
+
