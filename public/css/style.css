@@ -4,6 +4,12 @@
 :root {
     --bg: #fff;
     --primary: #a30013;
+    --text: #0a0a0a;
+    --gray-100: #f4f4f5;
+    --gray-200: #e4e4e7;
+    --gray-300: #d4d4d8;
+    --gray-400: #a3a3a3;
+    --gray-500: #71717a;
 }
 
 /* Global styles START */
@@ -15,6 +21,10 @@
 body {
     font-family: "Inter", Helvetica, sans-serif;
     background-color: var(--bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
 }
 
 a {
@@ -46,10 +56,15 @@ p, small, a, li, table {
     text-wrap: nowrap;
     text-align: center;
     cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg);
     transition: top 150ms ease-out;
 }
 
-.btn::before, .btn::after {
+.btn-primary::before, .btn-primary::after {
     z-index: -1;
     content: " ";
     position: absolute;
@@ -61,25 +76,33 @@ p, small, a, li, table {
     transition: bottom 150ms ease-out;
 }
 
-.btn::before {
+.btn-primary::before {
     background-color: inherit;
 }
 
-.btn::after {
+.btn-primary::after {
     background: rgba(0, 0, 0, 0.25);
 }
 
-.btn:hover {
+.btn-primary:hover {
     top: 4px;
 }
 
-.btn:hover::before, .btn:hover::after {
+.btn-primary:hover::before, .btn-primary:hover::after {
     bottom: 0;
 }
 
-.btn-primary {
-    background-color: var(--primary);
-    color: var(--bg);
+.btn-secondary {
+    background-color: var(--bg);
+    border: 1px solid var(--gray-300);
+    color: var(--text);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transition: background-color 150ms ease-out;
+}
+
+.btn-secondary:hover {
+    background-color: var(--gray-100);
 }
 
 /* Button styling END */

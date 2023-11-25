@@ -1,12 +1,44 @@
+.input-field {    
+    position: relative; 
+    margin-bottom: 12px;
+}
+
 input {
-    
     width: 100%;
-    padding: 16px;
     outline: none;
-    border: 1px solid;
+    padding: 16px;
+    border: 1px solid var(--gray-300);
     border-radius: 6px;
+    font-size: 16px;
 }
 
 input:focus {
     border-color: var(--primary);
 }
+
+label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 0 8px;
+    color: var(--gray-500);
+    transition: all 150ms ease-in-out;
+    pointer-events: none;
+}
+
+/*label animation START*/
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+    top: -8px;
+    left: 10px;
+    padding: 0 6px;
+    font-size: 14px;
+    background-color: var(--bg);
+}
+
+input:focus ~ label {
+    color: var(--primary);
+}
+
+/*label animation END*/
