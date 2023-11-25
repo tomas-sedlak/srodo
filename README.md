@@ -13,7 +13,7 @@ Install node.js dependencies:
 npm install
 ```
 
-Import `database.sql.zip` file into phpmyadmin.
+Import `database.sql` file into phpmyadmin.
 
 ## Testing
 
