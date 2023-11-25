@@ -6,12 +6,10 @@ router.get("/login", (req, res) => {
     res.render("login")
 })
 
-router.get("/auth/google", passport.authenticate("google", {
-    scope: ["profile", "email"]
-}))
+router.get("/google", passport.authenticate("google"))
 
-router.get("/auth/google/redirect", passport.authenticate("google"), (req, res) => {
-    res.send("Success")
+router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+    res.send(req.user)
 })
 
 router.get("/logout", (req, res) => {

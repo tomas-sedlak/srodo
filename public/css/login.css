@@ -5,47 +5,58 @@ body {
     min-height: 100vh;
 }
 
-.wrapper {
-    width: 320px;
+.login-wrapper {
+    max-width: 360px;
+    padding: 16px;
 }
 
-h1 {
+.login-wrapper h1 {
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
+.forgot {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.forgot a {
+    color: var(--primary);
+}
+
 .btn {
     width: 100%;
+}
+
+.btn-primary {
+    margin-bottom: 24px;
+}
+
+.btn-secondary {
     margin-bottom: 8px;
 }
 
 .signup {
     text-align: center;
+    margin-top: 16px;
 }
 
 .signup a {
-    text-decoration: none;
     color: var(--primary);
 }
 
-.forgot {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-.forgot a {
-    
-    text-decoration: none;
-    color: var(--primary);
-    margin-left: 4px;    
+.login-divider {
+    position: relative;
+    margin-bottom: 24px;
 }
 
 .or {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: var(--bg);
     padding: 0 6px;
-    font-size: 0.9rem;
-    margin: auto;
-    transform: translateY(-75%);
-    width: fit-content;
+    font-size: 16px;
 }
 

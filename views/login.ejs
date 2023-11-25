@@ -12,7 +12,7 @@
 <body>
     <!-- <a href="#" class="btn btn-primary">Prihlásiť sa</a> -->
 
-    <div class="wrapper">
+    <div class="login-wrapper">
         <form action="">
             <h1>Prihlásenie</h1>
             <div class="input-field">
@@ -27,22 +27,23 @@
                 <a href="#">Zabudli ste heslo?</a>
             </div>
             <a href="#" class="btn btn-primary">Prihlásiť sa</a>
-            <div class="signup">
-                <p>Nemáte účet? <a href="signup.ejs">Zaregistrujte sa</a></p>
-            </div>
             
-            <hr>
-            <p class="or">OR</p>
+            <div class="login-divider">
+                <hr>
+                <p class="or">OR</p>
+            </div>
 
             <!-- Login with .... -->
             
             <div class="login-with">
-                <a href="#" class="btn btn-secondary">Prihlásiť sa cez Google</a>
+                <a href="/auth/google" class="btn btn-secondary">Prihlásiť sa cez Google</a>
                 <a href="#" class="btn btn-secondary">Prihlásiť sa cez Facebook</a>
                 <a href="#" class="btn btn-secondary">Prihlásiť sa cez GitHub</a>
             </div>
             
-            
+            <div class="signup">
+                <p>Nemáte účet? <a href="/auth/signup">Zaregistrujte sa</a></p>
+            </div>
         </form>
     </div>
 </body>
