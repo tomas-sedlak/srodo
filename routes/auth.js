@@ -8,12 +8,16 @@ router.get("/login", (req, res) => {
 
 router.get("/google", passport.authenticate("google"))
 
-router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-    res.send(req.user)
-})
+router.get("/google/redirect", passport.authenticate("google", {
+    successRedirect: "/",
+    failureRedirect: "/auth/login"
+}))
 
-router.get("/logout", (req, res) => {
-    res.send("Log out page")
+router.get("/logout", (req, res, next) => {
+    req.logout((err) => {
+        if (err) { return next(err) }
+        res.redirect("/")
+    })
 })
 
 router.get("/signup", (req, res) => {

@@ -2,15 +2,7 @@ const passport = require("passport")
 const GoogleStrategy = require("passport-google-oauth20").Strategy
 const dotenv = require("dotenv")
 dotenv.config()
-const db = require("../config/db")
-
-passport.serializeUser((user, done) => {
-    done(null, user)
-})
-
-passport.deserializeUser((user, done) => {
-    done(null, user)
-})
+const db = require("./db")
 
 passport.use(
     new GoogleStrategy({
@@ -25,23 +17,35 @@ passport.use(
             if (err) return done(err)
             if (row.length > 0) {
                 console.log("Found")
-                done(null, row)
+                done(null, row[0])
             } else {
                 console.log(
                     profile.id,
                     profile.displayName,
                     profile.emails[0].value
                 )
-                db.query("INSERT INTO users (username, google_id, displayname, email) VALUES (?, ?, ?, ?)", [
+                db.query("INSERT INTO users (username, google_id, displayname, email, profile_picture) VALUES (?, ?, ?, ?, ?)", [
                     "test",
                     profile.id,
                     profile.displayName,
-                    profile.emails[0].value
+                    profile.emails[0].value,
+                    profile.photos[0].value
                 ], (err, row) => {
-                    console.log("Inserted:", row)
-                    done(null, row)
+                    console.log("Inserted:", row[0])
+                    done(null, row[0])
                 })
             }
         })
     })
 )
+
+passport.serializeUser((user, done) => {
+    done(null, user.id)
+})
+
+passport.deserializeUser((id, done) => {
+    db.query("SELECT * FROM users WHERE id=?", [id], (err, row) => {
+        if (err) { return done(err) }
+        done(null, row[0])
+    })
+})

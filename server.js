@@ -1,6 +1,6 @@
 const express = require("express")
 const authRouter = require("./routes/auth")
-const passportSetup = require("./config/passport-setup")
+const passportSetup = require("./config/passport")
 const session = require("express-session")
 const dotenv = require("dotenv")
 const passport = require("passport")
@@ -19,13 +19,14 @@ app.use(session({
     saveUninitialized: false
 }))
 app.use(passport.authenticate("session"))
+app.use(passport.initialize())
 
 // Express routers
 app.use("/auth", authRouter)
 
 // Srodo homepage
 app.get("/", (req, res) => {
-    res.send("Srodo homepage")
+    res.render("homepage", { user: req.user })
 })
 
 // Start the server

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if (locals.user) { %>
+        <img src="<%= locals.user.profile_picture %>" alt="">
+        <p>Hello <%= locals.user.displayname %></p>
+    <% } %>
+    <h1>Srodo homepage</h1>
+</body>
+</html>
