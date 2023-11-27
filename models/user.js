@@ -21,13 +21,13 @@ const userSchema = new mongoose.Schema({
         facebookId: String,
         accessToken: String
     },
-    timestamp: {
+    createdAt: {
         type: Date,
-        default: () => Date.now()
+        default: Date.now()
     },
     profilePicture: {
         type: String,
-        default: () => "default.jpg"
+        default: "default.jpg"
     },
 })
 

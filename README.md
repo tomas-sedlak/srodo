@@ -3,7 +3,7 @@
 ## Requirements
 
 - Node.js [download link](https://nodejs.org/)
-- MySQL database like XAMPP [download link](https://www.apachefriends.org/)
+- MongoDB server [download link](https://www.mongodb.com/try/download/community)
 
 ## Installation
 
@@ -12,8 +12,6 @@ Install node.js dependencies:
 ```bash
 npm install
 ```
-
-Import `database.sql` file into phpmyadmin.
 
 ## Testing
 

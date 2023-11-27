@@ -6,6 +6,12 @@ const dotenv = require("dotenv")
 const passport = require("passport")
 dotenv.config()
 
+// Connect to database
+const mongoose = require("mongoose")
+mongoose.connect("mongodb://localhost:27017/srodo", {
+    family: 4 // Important! Otherwise it returns timeout error
+})
+
 // Initialize Express
 app = express()
 app.set("view engine", "ejs")
