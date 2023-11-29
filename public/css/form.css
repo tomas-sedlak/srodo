@@ -27,6 +27,22 @@ label {
     pointer-events: none;
 }
 
+.input-field .error {
+    color: red;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.input-field .error svg {
+    width: 16px;
+    height: 16px;
+    fill: red;
+}
+
 /*label animation START*/
 
 input:focus ~ label,

@@ -1,12 +1,25 @@
 const mongoose = require("mongoose")
 
 const userSchema = new mongoose.Schema({
-    username: String,
+    username: {
+        type: String,
+        unique: [true, "Username already exists"],
+        required: [true, "Username is required"],
+        match: [/^[a-zA-Z0-9_]+$/, "Helso ma obsahovat len pismena, cisla a _"]
+    },
     displayName: String,
-    email: String,
+    email: {
+        type: String,
+        unique: [true, "Email already in use"],
+        required: [true, "Email is required"]
+    },
     loginMethod: String,
     local: {
-        hashedPassword: String,
+        password: {
+            type: String,
+            required: [true, "Password is required"],
+            minlength: [8, "Heslo musi mat minimalne 8 znakov"]
+        },
         salt: String,
         emailVerified: Boolean,
         emailVerificationCode: String,

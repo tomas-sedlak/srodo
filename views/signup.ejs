@@ -11,31 +11,57 @@
 </head>
 <body>
     <div class="login-wrapper">
-        <form action="">
+        <form method="post">
             <h1>Registrácia</h1>
             <div class="input-field">
-                <input type="text" placeholder=" " required>
+                <input type="text" name="username" placeholder=" " value="<%= locals.username %>" required>
                 <label for="">Username</label>
+                <% if (locals.errors && locals.errors.username) { %>
+                    <span class="error">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg>
+                        <%= locals.errors.username %></span>
+                <% } %>
             </div>
             <div class="input-field">
-                <input type="email" placeholder=" " required>
+                <input type="email" name="email" placeholder=" " value="<%= locals.email %>">
                 <label for="">Email</label>
+                <% if (locals.errors && locals.errors.email) { %>
+                    <span class="error">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg>
+                        <%= locals.errors.email %>
+                    </span>
+                <% } %>
             </div>
             <div class="input-field">
-                <input type="password" placeholder=" " required>
+                <input type="password" name="password" placeholder=" " value="<%= locals.password %>">
                 <label for="">Heslo</label>
+                <% if (locals.errors && locals.errors["local.password"]) { %>
+                    <span class="error">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path></svg>
+                        <%= locals.errors["local.password"] %>
+                    </span>
+                <% } %>
             </div>
-            <a href="#" class="btn btn-primary">Zaregistrovať sa</a>
+            <button type="submit" class="btn btn-primary">Zaregistrovať sa</button>
             
             <div class="login-divider">
                 <hr>
-                <p class="or">OR</p>
+                <p class="or">ALEBO</p>
             </div>
             
             <div class="login-with">
-                <a href="/auth/google" class="btn btn-secondary">Prihlásiť sa cez Google</a>
-                <a href="#" class="btn btn-secondary">Prihlásiť sa cez Facebook</a>
-                <a href="#" class="btn btn-secondary">Prihlásiť sa cez GitHub</a>
+                <a href="/auth/google" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                    </svg>
+                    Prihlásiť sa cez Google
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+                        <path fill="#0866ff" d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z"></path>
+                    </svg>
+                    Prihlásiť sa cez Facebook
+                </a>
             </div>
             
             <div class="signup">
