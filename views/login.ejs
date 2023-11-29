@@ -11,20 +11,20 @@
 </head>
 <body>
     <div class="login-wrapper">
-        <form action="">
+        <form method="post">
             <h1>Prihlásenie</h1>
             <div class="input-field">
-                <input type="email" placeholder=" ">
+                <input type="text" name="username" placeholder=" " required>
                 <label for="">Username alebo email</label>
             </div>
             <div class="input-field">
-                <input type="password" placeholder=" ">
+                <input type="password" name="password" placeholder=" " required>
                 <label for="">Heslo</label>
             </div>
             <div class="forgot">
                 <a href="#">Zabudli ste heslo?</a>
             </div>
-            <a href="#" class="btn btn-primary">Prihlásiť sa</a>
+            <button type="submit" class="btn btn-primary">Prihlásiť sa</button>
             
             <div class="login-divider">
                 <hr>

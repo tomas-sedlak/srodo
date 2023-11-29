@@ -1,9 +1,12 @@
 const express = require("express")
+const flash = require("express-flash")
+const session = require("express-session")
+const passport = require("passport")
 const authRouter = require("./routes/auth")
 const passportSetup = require("./config/passport")
-const session = require("express-session")
+
+// Setup enviroment variables
 const dotenv = require("dotenv")
-const passport = require("passport")
 dotenv.config()
 
 // Connect to database
@@ -19,13 +22,15 @@ app.set("view engine", "ejs")
 // Express middlewares
 app.use(express.static("./public"))
 app.use(express.static("./images"))
+app.use(express.urlencoded({ extended: false }))
+app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }))
-app.use(passport.authenticate("session"))
 app.use(passport.initialize())
+app.use(passport.session())
 
 // Express routers
 app.use("/auth", authRouter)

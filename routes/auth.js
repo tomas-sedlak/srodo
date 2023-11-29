@@ -6,6 +6,8 @@ router.get("/login", (req, res) => {
     res.render("login")
 })
 
+router.post("/login", passport.authenticate("local"))
+
 router.get("/google", passport.authenticate("google"))
 
 router.get("/google/redirect", passport.authenticate("google", {
